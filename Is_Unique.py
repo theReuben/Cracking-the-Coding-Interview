@@ -3,7 +3,7 @@
 #The space complexity is O(n) where n is the length of the string
 #The time complexity is O(n) where n is the length of the string, this cannot be improved as every character must be checked
 
-def isUnique(a):
+def is_unique(a):
     s = set()
     if (len(a) != 0) :   
         for x in range(0, len(a)) :
