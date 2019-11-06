@@ -11,19 +11,20 @@ class Solution(object):
         
         stack = []
         
+        paren = {"(" : ")", "[" : "]", "{" : "}"}
+        
         chars = [s[i] for i in range(len(s))]
         
+        op = [key for key, val in paren.items()]
+        cl = [val for key, val in paren.items()]
+        
         for c in chars:
-            if chars[0] in [")", "]", "}"]:
+            if chars[0] in cl:
                 return False
-            elif chars[-1] in ["(", "[", "{"]:
+            elif chars[-1] in op:
                 return False
-            elif c == "(":
-                stack.append(")")
-            elif c == "{":
-                stack.append("}")
-            elif c == "[":
-                stack.append("]")
+            elif c in op:
+                stack.append(paren[c])
             elif len(stack) > 0 and c == stack[-1]:
                 stack.pop()
             else:
